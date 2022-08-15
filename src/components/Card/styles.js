@@ -30,7 +30,7 @@ export const CustomCard = styled.div`
 	}
 
 	section img {
-		width: 11%;
+		width: 12%;
 	}
 
 	@media (min-width: 490px) {

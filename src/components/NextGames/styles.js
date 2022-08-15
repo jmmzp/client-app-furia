@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
-	min-width: 340px;
-	width: 100%;
 	padding: 1.6rem;
 
 	border: 1px solid #303030;
@@ -24,6 +22,8 @@ export const Title = styled.p`
 `
 
 export const BoxCards = styled.div`
+	width: 100%;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -27,8 +27,8 @@ export default function Menu() {
 
 			<TextBox>
 				<p onClick={() => handleNavigateMenu('')}>HOME</p>
+				<p onClick={() => handleNavigateMenu('games')}>GAMES</p>
 				<p onClick={() => handleNavigateMenu('bets')}>APOSTAS</p>
-				<p onClick={() => handleNavigateMenu('players')}>PLAYERS</p>
 				<p onClick={() => handleNavigateMenu('profile')}>PERFIL</p>
 			</TextBox>
 

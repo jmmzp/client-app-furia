@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
+	min-width: 320px;
 	padding: 0.8rem 1rem;
 
 	display: flex;
@@ -10,10 +11,18 @@ export const Card = styled.div`
 
 	background-color: #161616;
 
-	transition: 0.8s;
+	transition: 0.3s;
+	transform: translateX(-1%) translateY(-1%);
+	box-shadow: 3px 3px 0px 1px #fff;
+
 	&:hover {
-		transform: translateX(-3%) translateY(-3%);
-		box-shadow: 5px 5px 0px 1px #fff;
+		cursor: pointer;
+		transform: translateX(0) translateY(0);
+		box-shadow: 0px 0px 0px 0px #fff;
+	}
+
+	@media (min-width: 490px) {
+		min-width: 400px;
 	}
 `
 
@@ -49,14 +58,7 @@ export const NameTeamAdversary = styled.p`
 	font: 200 normal 1.6rem 'Raleway';
 `
 
-export const InfoDate = styled.p`
-	font: 500 normal 1.2rem 'Montserrat';
-
-	span {
-		font-weight: 200;
-	}
-`
-export const InfoTime = styled.p`
+export const Infos = styled.p`
 	font: 500 normal 1.2rem 'Montserrat';
 
 	span {

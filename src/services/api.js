@@ -23,3 +23,43 @@ export const getUserData = async token => {
 		}
 	})
 }
+
+export const getNextGames = async token => {
+	return await api.get('/games', {
+		headers: {
+			authorization: 'Bearer ' + token
+		}
+	})
+}
+
+export const getNextGamesByModality = async token => {
+	return await api.get('/games/modality', {
+		headers: {
+			authorization: 'Bearer ' + token
+		}
+	})
+}
+
+export const getAllBets = async token => {
+	return await api.get('/bets', {
+		headers: {
+			authorization: 'Bearer ' + token
+		}
+	})
+}
+
+export const getMyBets = async token => {
+	return await api.get('/bets/me', {
+		headers: {
+			authorization: 'Bearer ' + token
+		}
+	})
+}
+
+export const getBetsByGameId = async (token, id) => {
+	return await api.get(`/bets/game/${id}`, {
+		headers: {
+			authorization: 'Bearer ' + token
+		}
+	})
+}

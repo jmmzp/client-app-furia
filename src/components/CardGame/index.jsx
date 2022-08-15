@@ -1,18 +1,30 @@
+import { format } from 'date-fns'
+import { useNavigate } from 'react-router-dom'
+import logoFuria from '../../assets/logo-furia.png'
 import {
 	BoxInfoGame,
 	BoxTeams,
 	Card,
-	InfoDate,
-	InfoTime,
+	Infos,
 	LogoTeam,
 	NameTeam,
 	NameTeamAdversary,
 	Team
 } from './styles'
-import logoFuria from '../../assets/logo-furia.png'
-export default function CardGame() {
+
+export default function CardGame(props) {
+	const navigate = useNavigate()
+
+	const handleSelectGame = id => {
+		return navigate(`/games/${id}/bets`)
+	}
+
 	return (
-		<Card>
+		<Card
+			onClick={() => {
+				handleSelectGame(props.id)
+			}}
+		>
 			<BoxTeams>
 				<Team>
 					<LogoTeam src={logoFuria} />
@@ -20,19 +32,23 @@ export default function CardGame() {
 				</Team>
 
 				<Team>
-					<LogoTeam src="https://seeklogo.com/images/I/imperial-esports-logo-728A269FBB-seeklogo.com.png?v=637810384520000000" />
-					<NameTeamAdversary>Imperial</NameTeamAdversary>
+					<LogoTeam src={props.teamLogo} />
+					<NameTeamAdversary>{props.team2}</NameTeamAdversary>
 				</Team>
 			</BoxTeams>
 
 			<BoxInfoGame>
-				<InfoDate>
-					Data: <span>00/00/0000</span>
-				</InfoDate>
+				<Infos>
+					Game: <span>{props.modality}</span>
+				</Infos>
 
-				<InfoTime>
-					Horário: <span>16:00</span>
-				</InfoTime>
+				<Infos>
+					Data: <span>{format(new Date(props.date), 'dd/MM/yyyy')}</span>
+				</Infos>
+
+				<Infos>
+					Horário: <span>{props.time.slice(0, 5)}</span>
+				</Infos>
 			</BoxInfoGame>
 		</Card>
 	)

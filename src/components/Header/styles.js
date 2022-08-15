@@ -8,6 +8,13 @@ export const CustomHeader = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
 `
 
 export const Logo = styled.img`

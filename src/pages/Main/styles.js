@@ -21,6 +21,7 @@ export const CustomMain = styled.main`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 2.4rem;
 
 	@media (min-width: 1000px) {

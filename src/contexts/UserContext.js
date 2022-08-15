@@ -7,6 +7,7 @@ export const UserProvider = ({ children }) => {
 	const [modal, setModal] = useState(null)
 	const [token, setToken, removeToken] = useLocalStorage('token')
 	const [userData, setUserData] = useState([])
+	const [nextGames, setNextGames] = useState([])
 
 	const isLogged = token ? true : false
 
@@ -28,7 +29,9 @@ export const UserProvider = ({ children }) => {
 				removeToken,
 				userData,
 				setUserData,
-				logout
+				logout,
+				nextGames,
+				setNextGames
 			}}
 		>
 			{children}
