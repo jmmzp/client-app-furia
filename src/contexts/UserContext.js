@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
 	const [token, setToken, removeToken] = useLocalStorage('token')
 	const [userData, setUserData] = useState([])
 	const [nextGames, setNextGames] = useState([])
+	const [openBets, setOpenBets] = useState([])
 
 	const isLogged = token ? true : false
 
@@ -31,7 +32,9 @@ export const UserProvider = ({ children }) => {
 				setUserData,
 				logout,
 				nextGames,
-				setNextGames
+				setNextGames,
+				openBets,
+				setOpenBets
 			}}
 		>
 			{children}

@@ -20,8 +20,18 @@ export const Points = styled.p`
 	}
 `
 
+export const Content = styled.div`
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`
+
 export const Game = styled.div`
 	width: 100%;
+	max-width: 480px;
 	padding: 1rem 1.6rem;
 
 	display: flex;
@@ -30,7 +40,15 @@ export const Game = styled.div`
 `
 
 export const Versus = styled.span`
-	font: 100 normal 2rem 'Raleway';
+	font: 400 normal 2rem 'Raleway';
+`
+
+export const BoxTeams = styled.div`
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 `
 
 export const Team = styled.div`
@@ -42,9 +60,13 @@ export const Team = styled.div`
 export const LogoTeam = styled.img`
 	padding: 0.4rem;
 
-	width: 30px;
+	width: 40px;
 `
 
 export const NameTeam = styled.p`
 	font: 500 normal 2rem 'Montserrat';
+`
+
+export const BoxBets = styled.div`
+	width: 100%;
 `

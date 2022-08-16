@@ -6,7 +6,7 @@ const Container = styled.div`
 	height: 100%;
 	min-height: 100vh;
 
-	background-color: #090909;
+	background-color: #121212;
 	color: white;
 
 	display: flex;

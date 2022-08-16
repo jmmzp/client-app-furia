@@ -9,19 +9,20 @@ import { BoxCard, BoxGames, CustomMain, Wrapper } from './styles'
 import { getUserData, getNextGames } from '../../services/api'
 
 export default function Main() {
-	const { modal, setUserData, setNextGames, token, logout } = useUserContext()
+	const { modal, setUserData, setNextGames, token } = useUserContext()
 
 	useEffect(() => {
-		;(async function () {
+		const getUser = async () => {
 			try {
 				const { data } = await getUserData(token)
 
 				return setUserData(data)
 			} catch (error) {
-				return logout()
+				return
 			}
-		})()
-		;(async function () {
+		}
+
+		const getGames = async () => {
 			try {
 				const { data } = await getNextGames(token)
 
@@ -29,10 +30,11 @@ export default function Main() {
 			} catch (error) {
 				return setNextGames([])
 			}
-		})()
+		}
 
-		return
-	}, [])
+		getUser()
+		getGames()
+	}, [setNextGames, setUserData, token])
 
 	return (
 		<Container>
