@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 export const api = axios.create({
-	baseURL: process.env.REACT_APP_BASE_URL,
+	baseURL: 'https://api-centraldafuria.herokuapp.com/',
 	headers: {
-		api_key: process.env.REACT_APP_API_KEY,
+		api_key: 'OX5MFkHJAFHRWL6pv09UCriKIF54SYXh',
 		'Content-Type': 'application/json'
 	}
 })
