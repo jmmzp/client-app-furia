@@ -8,7 +8,10 @@ import Container from '../../styles/Container'
 import Divider from '../../styles/Divider'
 import Icon from '../../styles/Icon'
 import Wrapper from '../../styles/Wrapper'
+import CardBet from '../../components/CardBet'
 import {
+	BoxTeams,
+	Content,
 	Game,
 	HeaderBets,
 	LogoTeam,
@@ -20,7 +23,7 @@ import {
 
 export default function Bets() {
 	const navigate = useNavigate()
-	const { userData, modal, token } = useUserContext()
+	const { userData, modal, token, setOpenBets } = useUserContext()
 	const { id } = useParams()
 	const [bets, setBets] = useState(null)
 
@@ -28,8 +31,11 @@ export default function Bets() {
 		;(async function () {
 			try {
 				const { data } = await getBetsByGameId(token, id)
-				console.log(data)
-				return setBets(data)
+
+				setBets(data)
+				setOpenBets(data.openBets)
+
+				return
 			} catch (error) {
 				return error.message
 			}
@@ -41,27 +47,37 @@ export default function Bets() {
 			{modal}
 			<Wrapper>
 				<HeaderBets>
-					<Icon src={iconBack} onClick={() => navigate('/games')} />
+					<Icon src={iconBack} onClick={() => navigate('/')} />
 
 					<Points>
-						FuricoPoints:
+						Pontos:
 						<span> $ {userData.pontos}</span>
 					</Points>
 				</HeaderBets>
 
 				<Divider />
 
-				<Game>
-					<Team>
-						<LogoTeam src={logoFuria} />
-						<NameTeam>Furia</NameTeam>
-					</Team>
+				{bets ? (
+					<Content>
+						<Game>
+							<BoxTeams>
+								<Team>
+									<LogoTeam src={logoFuria} />
+									<NameTeam>{bets.game.time_1}</NameTeam>
+								</Team>
 
-					<Team>
-						<NameTeam>{bets.game.time_2}</NameTeam>
-						<LogoTeam src={bets.game.logo_adversario} />
-					</Team>
-				</Game>
+								<Versus>vs</Versus>
+
+								<Team>
+									<NameTeam>{bets.game.time_2}</NameTeam>
+									<LogoTeam src={bets.game.logo_adversario} />
+								</Team>
+							</BoxTeams>
+						</Game>
+
+						<CardBet />
+					</Content>
+				) : null}
 			</Wrapper>
 		</Container>
 	)
